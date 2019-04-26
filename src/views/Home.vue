@@ -40,4 +40,8 @@ export default {
   position: fixed;
   bottom: 0;
 }
+ul {
+  list-style-type: none;
+  padding: 0;
+}
 </style>
