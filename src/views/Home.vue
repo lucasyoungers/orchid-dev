@@ -1,18 +1,43 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ul id="messages"></ul>
+    <div class="ui">
+      <input type="text" v-model="message">
+      <button v-on:click="send">Send</button>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
+  name: "home",
+  // components: {
+  //   Message
+  // },
+  data: function() {
+    return {
+      message: ""
+    };
+  },
+  methods: {
+    send: function() {
+      let messages = document.getElementById("messages");
+      let newMessage = document.createElement("li");
+      newMessage.innerHTML = this.message;
+      messages.appendChild(newMessage);
+      this.message = "";
+    }
   }
-}
+};
 </script>
+
+<style scoped>
+#messages {
+  position: fixed;
+  bottom: 20px;
+}
+.ui {
+  position: fixed;
+  bottom: 0;
+}
+</style>
